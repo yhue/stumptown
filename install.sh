@@ -1,8 +1,8 @@
 #!/bin/bash
 set -eux
 
-echo ">>> create an SSH key"
-ssh-keygen -t ed25519
+#echo ">>> create an SSH key"
+#ssh-keygen -t ed25519
 
 echo ">>> install xcode command line tools"
 xcode-select --install
