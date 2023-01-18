@@ -5,7 +5,7 @@ set -eux
 #ssh-keygen -t ed25519
 
 echo ">>> install xcode command line tools"
-xcode-select --install
+sudo xcode-select --install
 
 echo ">>> install homebrew"
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
