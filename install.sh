@@ -1,8 +1,10 @@
 #!/bin/bash
 set -eux
 
-echo ">>> create an SSH key"
-ssh-keygen -t ed25519
+read -p ">>> create an SSH key? (y/n): " yn
+if [[ "${yn,,}" == 'y' ]]; then
+    ssh-keygen -t ed25519
+fi
 
 echo ">>> install xcode command line tools"
 sudo xcode-select --install
