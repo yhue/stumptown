@@ -7,7 +7,16 @@ if [[ "${yn,,}" == 'y' ]]; then
 fi
 
 echo ">>> install xcode command line tools"
-sudo xcode-select --install
+xcode_dir=$(sudo xcode-select --print-path)
+if [[ -d "${xcode_dir}" ]]; then
+    read -p ">>> clear existing xcode tools? (y/n): " yn
+    if [[ "${yn,,}" == 'y' ]]; then
+        sudo rm -rm $xcode_dir
+        sudo xcode-select --install
+    fi
+else
+    sudo xcode-select --install
+fi
 
 echo ">>> install homebrew"
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
